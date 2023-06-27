@@ -1,0 +1,31 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var numero, maior int
+	leitura := false
+
+	fmt.Println("Digite os números (digite 0 para sair):")
+
+	for {
+		fmt.Scanln(&numero)
+
+		if numero == 0 {
+			break
+		}
+
+		if !leitura || numero > maior {
+			maior = numero
+			leitura = true
+		}
+	}
+
+	if leitura {
+		fmt.Println("O maior número é:", maior)
+	} else {
+		fmt.Println("Nenhum número válido foi inserido.")
+	}
+}
