@@ -1,0 +1,44 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var altura float64
+	var sexo string
+
+	fmt.Print("Digite a altura (em metros): ")
+	fmt.Scanln(&altura)
+
+	fmt.Print("Digite o sexo (M para masculino, F para feminino): ")
+	fmt.Scanln(&sexo)
+
+	pesoIdeal := 0.0
+
+	if sexo == "M" || sexo == "m" {
+		pesoIdeal = (72.7 * altura) - 58
+	} else if sexo == "F" || sexo == "f" {
+		pesoIdeal = (62.1 * altura) - 44.7
+	} else {
+		fmt.Println("Sexo inválido. Digite M para masculino ou F para feminino.")
+		return
+	}
+
+	var situacao string
+
+	fmt.Print("Digite o peso (em kg): ")
+	var peso float64
+	fmt.Scanln(&peso)
+
+	if peso < pesoIdeal {
+		situacao = "abaixo do peso ideal"
+	} else if peso > pesoIdeal {
+		situacao = "acima do peso ideal"
+	} else {
+		situacao = "dentro do peso ideal"
+	}
+
+	fmt.Printf("O peso ideal para essa pessoa é %.2f kg.\n", pesoIdeal)
+	fmt.Printf("A pessoa está %s.\n", situacao)
+}
