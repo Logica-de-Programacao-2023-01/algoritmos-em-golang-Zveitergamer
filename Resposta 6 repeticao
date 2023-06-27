@@ -1,0 +1,20 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var numero int
+
+	fmt.Print("Digite um número: ")
+	fmt.Scanln(&numero)
+
+	fmt.Println("Tabuada de multiplicação do número", numero)
+	fmt.Println("------------------------")
+
+	for i := 1; i <= 10; i++ {
+		resultado := numero * i
+		fmt.Printf("%d x %d = %d\n", numero, i, resultado)
+	}
+}
